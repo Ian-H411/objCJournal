@@ -8,7 +8,7 @@
 
 #import "EntryTableViewController.h"
 #import "EntryController.h"
-
+#import "EntryDetailViewController.h"
 @interface EntryTableViewController ()
 
 @end
@@ -20,28 +20,27 @@
     
 
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return IMHEntryController.shared.entries.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"entryCell" forIndexPath:indexPath];
-    
-    
+    IMHEntry *entry = [IMHEntryController.shared.entries objectAtIndex:indexPath.row];
+    cell.textLabel.text = [entry title];
+    NSString *dateAsString = [NSDateFormatter localizedStringFromDate:[entry date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterLongStyle];
+    cell.detailTextLabel.text = dateAsString;
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
 // Override to support editing the table view.
@@ -50,15 +49,18 @@
         [IMHEntryController.shared removeEntry:[IMHEntryController.shared.entries objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-
-
+    if ([segue.identifier  isEqualToString: @"edit"]) {
+        NSIndexPath *index = [self.tableView indexPathForSelectedRow];
+        IMHEntry *entryToSend = IMHEntryController.shared.entries[index.row];
+        EntryDetailViewController *vc = [segue destinationViewController];
+        vc.entryLanded = entryToSend;
+        
+    }
 }
 
 @end

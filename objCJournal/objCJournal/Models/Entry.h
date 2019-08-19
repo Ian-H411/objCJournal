@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Entry : NSObject
+@interface IMHEntry : NSObject
 
 @property (nonatomic) NSString *title;
 
@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDate *date;
 
 - (instancetype) initWithEntryName: (NSString *) name bodyText:(NSString *) bodytext;
+- (NSDictionary *) dictionaryCopy;
+
 
 @end
 

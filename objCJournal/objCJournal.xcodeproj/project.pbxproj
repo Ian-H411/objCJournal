@@ -15,6 +15,7 @@
 		259B4F90230B1778001B5310 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B4F8F230B1778001B5310 /* Entry.m */; };
 		259B4F93230B19B1001B5310 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B4F92230B19B1001B5310 /* EntryController.m */; };
 		259B4F96230B1E83001B5310 /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B4F95230B1E83001B5310 /* EntryTableViewController.m */; };
+		259B4F99230B372F001B5310 /* EntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B4F98230B372F001B5310 /* EntryDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		259B4F92230B19B1001B5310 /* EntryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
 		259B4F94230B1E83001B5310 /* EntryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryTableViewController.h; sourceTree = "<group>"; };
 		259B4F95230B1E83001B5310 /* EntryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryTableViewController.m; sourceTree = "<group>"; };
+		259B4F97230B372F001B5310 /* EntryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryDetailViewController.h; sourceTree = "<group>"; };
+		259B4F98230B372F001B5310 /* EntryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 			children = (
 				259B4F94230B1E83001B5310 /* EntryTableViewController.h */,
 				259B4F95230B1E83001B5310 /* EntryTableViewController.m */,
+				259B4F97230B372F001B5310 /* EntryDetailViewController.h */,
+				259B4F98230B372F001B5310 /* EntryDetailViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259B4F99230B372F001B5310 /* EntryDetailViewController.m in Sources */,
 				259B4F90230B1778001B5310 /* Entry.m in Sources */,
 				259B4F84230B16FF001B5310 /* main.m in Sources */,
 				259B4F93230B19B1001B5310 /* EntryController.m in Sources */,

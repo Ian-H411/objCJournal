@@ -17,11 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (IMHEntryController *) shared;
 
--(void) addEntry:(Entry *)entry;
+-(void) addEntry:(NSString *)title bodyText:(NSString *)bodyText;
 
--(void) removeEntry:(Entry *)entry;
+-(void) removeEntry:(IMHEntry *)entry;
 
+-(void) updateEntry:(IMHEntry *)entry newText:(NSString *)newText newBody:(NSString *)newBody;
 
+-(NSMutableArray *) loadEntires;
 @end
 
 NS_ASSUME_NONNULL_END

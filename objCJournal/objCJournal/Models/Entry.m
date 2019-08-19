@@ -8,7 +8,7 @@
 
 #import "Entry.h"
 
-@implementation Entry
+@implementation IMHEntry
 
 - (instancetype)initWithEntryName:(NSString *)name bodyText:(NSString *)bodytext
 {
@@ -19,5 +19,11 @@
         _date = [NSDate date];
     }
     return self;
+}
+
+
+- (NSDictionary *)dictionaryCopy
+{
+    
 }
 @end

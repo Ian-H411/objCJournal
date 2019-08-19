@@ -20,18 +20,41 @@
     });
     return shared;
 }
-
-- (void)addEntry:(Entry *)entry;
+- (instancetype)init
 {
-    [IMHEntryController.shared.entries addObject:entry];
+    self = [super init];
+    if (self) {
+        //when we add persistence change the 2nd entries to our persistence list
+        _entries = [self loadEntires];
+    }
+    return self;
+}
+
+
+
+- (void)addEntry:(NSString *)title bodyText:(NSString *)bodyText
+{
+    IMHEntry *newEntry = [[IMHEntry alloc] initWithEntryName:title bodyText:bodyText];
+    [_entries addObject:newEntry];
     //save?
     
 }
 
-- (void)removeEntry:(Entry *)entry;
+- (void)removeEntry:(IMHEntry *)entry;
 {
     [IMHEntryController.shared.entries removeObject:entry];
 }
 
+- (void)updateEntry:(IMHEntry *)entry newText:(NSString *)newText newBody:(NSString *)newBody
+{
+    entry.title = newText;
+    entry.bodyText = newBody;
+}
+
+- (NSMutableArray *)loadEntires
+{
+    NSMutableArray *loadedEntries = [[NSMutableArray alloc] init];
+    return loadedEntries;
+}
 
 @end

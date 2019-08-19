@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +42,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="4pL-pT-q0H" kind="show" identifier="edit" id="6IC-6X-CzT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,12 +53,82 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hua-7z-bEn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qLh-VH-dbh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qLh-VH-dbh">
+                            <connections>
+                                <segue destination="4pL-pT-q0H" kind="show" identifier="add" id="eVo-H5-ow3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICB-Ng-lfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1426.0869565217392" y="122.54464285714285"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Zxr-K3-MGi">
+            <objects>
+                <viewController id="4pL-pT-q0H" customClass="EntryDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d67-XZ-IU4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Journal Entry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOB-Ck-3UC">
+                                <rect key="frame" x="12" y="120" width="246" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gS0-cN-Jbx">
+                                <rect key="frame" x="12" y="158" width="390" height="382"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-2X-UtL">
+                                <rect key="frame" x="83" y="555" width="248" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TzH-QK-xDm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Clear Text">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearTextButtonTapped:" destination="4pL-pT-q0H" eventType="touchUpInside" id="tK6-we-Gt1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gS0-cN-Jbx" firstAttribute="centerX" secondItem="I9x-Zz-Slz" secondAttribute="centerX" id="2LH-y1-q6z"/>
+                            <constraint firstItem="VOB-Ck-3UC" firstAttribute="top" secondItem="I9x-Zz-Slz" secondAttribute="top" constant="32" id="4zY-eH-tbX"/>
+                            <constraint firstItem="gS0-cN-Jbx" firstAttribute="top" secondItem="VOB-Ck-3UC" secondAttribute="bottom" constant="8" symbolic="YES" id="Acj-CH-e9c"/>
+                            <constraint firstItem="iZH-2X-UtL" firstAttribute="top" secondItem="gS0-cN-Jbx" secondAttribute="bottom" constant="15" id="I4S-46-Lbh"/>
+                            <constraint firstItem="VOB-Ck-3UC" firstAttribute="leading" secondItem="gS0-cN-Jbx" secondAttribute="leading" id="Jlx-J5-mBb"/>
+                            <constraint firstItem="I9x-Zz-Slz" firstAttribute="trailing" secondItem="VOB-Ck-3UC" secondAttribute="trailing" constant="156" id="Qje-KL-AfX"/>
+                            <constraint firstItem="iZH-2X-UtL" firstAttribute="centerX" secondItem="I9x-Zz-Slz" secondAttribute="centerX" id="d6e-Yg-zX8"/>
+                            <constraint firstItem="I9x-Zz-Slz" firstAttribute="bottom" secondItem="iZH-2X-UtL" secondAttribute="bottom" constant="247" id="dfD-lE-5oU"/>
+                            <constraint firstItem="iZH-2X-UtL" firstAttribute="width" secondItem="d67-XZ-IU4" secondAttribute="width" multiplier="0.6" id="iX9-IM-Nbl"/>
+                            <constraint firstItem="VOB-Ck-3UC" firstAttribute="leading" secondItem="I9x-Zz-Slz" secondAttribute="leading" constant="12" id="jQq-U2-SFA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I9x-Zz-Slz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="VPV-Ed-p1l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rYR-1c-jxZ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="4pL-pT-q0H" id="hR1-UK-hge"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="journalBodyTextField" destination="gS0-cN-Jbx" id="dV9-7p-eOH"/>
+                        <outlet property="journalTitleTextField" destination="VOB-Ck-3UC" id="wS4-8j-fyL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVZ-Kr-YDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2359.4202898550725" y="122.54464285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iNJ-gy-TsV">
@@ -75,4 +149,7 @@
             <point key="canvasLocation" x="515.94202898550725" y="122.54464285714285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eVo-H5-ow3"/>
+    </inferredMetricsTieBreakers>
 </document>
