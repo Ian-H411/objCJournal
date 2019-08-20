@@ -21,9 +21,28 @@
     return self;
 }
 
-
-- (NSDictionary *)dictionaryCopy
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    
+    self = [super init];
+    if (self){
+        if (dictionary[@"title"] == nil){
+            return nil;
+        } else if (dictionary[@"date"] == nil){
+            return nil;
+        } else if (dictionary[@"title"] == nil){
+            return nil;
+        }
+        _title = dictionary[@"title"];
+        _date = dictionary[@"date"];
+        _title = dictionary[@"title"];
+    }
+    return self;
+}
+
+
+- (NSDictionary *)dictionaryCopy:(NSString *)title bodyText:(NSString *)bodytext date:(NSDate *)date
+{
+    NSDictionary *dictionary = @{@"title": title, @"bodyText": bodytext, @"date":date};
+    return dictionary;
 }
 @end

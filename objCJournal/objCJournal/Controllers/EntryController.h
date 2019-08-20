@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) updateEntry:(IMHEntry *)entry newText:(NSString *)newText newBody:(NSString *)newBody;
 
 -(NSMutableArray *) loadEntires;
+
+-(void) saveToPersistentStorage;
+
+-(void) loadFromPersistentStorage;
+
 @end
 
 NS_ASSUME_NONNULL_END

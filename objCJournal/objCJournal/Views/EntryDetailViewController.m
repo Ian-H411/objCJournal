@@ -45,6 +45,7 @@
     } else{
         [IMHEntryController.shared addEntry:title bodyText:bodyText];
     }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

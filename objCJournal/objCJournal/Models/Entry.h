@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDate *date;
 
 - (instancetype) initWithEntryName: (NSString *) name bodyText:(NSString *) bodytext;
-- (NSDictionary *) dictionaryCopy;
+- (instancetype)initWithDictionary: (NSDictionary *)dictionary;
+- (NSDictionary *) dictionaryCopy: (NSString *) title bodyText:(NSString *) bodytext date:(NSDate *)date;
 
 
 @end
